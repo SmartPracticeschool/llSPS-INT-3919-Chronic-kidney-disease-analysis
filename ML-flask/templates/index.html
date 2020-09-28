@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+.login{
+top: 20%;
+}
+</style>
+</head>
+
+<body>
+ <div class="login">
+ <div class="vaishScoll">
+ 
+	<h1>Prediction for Chronic Kidney Disease</h1>
+	
+	 {{ prediction_text }}
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('y_predict')}}"method="post">
+    	<input type="text" name="Age_(float_only)" placeholder="Age (float_only)" required="required" />
+		<input type="text" name="Blood_Pressure_(float_only)" placeholder="Blood_Pressure_(float_only)" required="required" />
+		<input type="text" name="Specific_Gravity_(float_only)" placeholder="Specific_Gravity_(float_only)" required="required" />
+		<input type="text" name="Albumin_(float_only)" placeholder="Albumin_(float_only)" required="required" />
+		<input type="text" name="Sugar_(float_only)" placeholder="Sugar_(float_only)" required="required" />
+		<input type="text" name="Red_Blood_Cells_((normal\abnormal)_only)" placeholder="Red_blood_cells_((normal\abnormal)_only)" required="required" />
+        <input type="text" name="Pus_Cell_((normal\abnormal)_only)" placeholder="Pus_cell_((normal\abnormal)_only)" required="required" />
+		<input type="text" name="Pus_Cell_Clumps_((present\notpresent)_only)" placeholder="Pus_Cell_Clumps_((present\notpresent)_only)" required="required" />
+        <input type="text" name="Bacteria_((present\notpresent)_only)" placeholder="Bacteria_((present\notpresent)_only)" required="required" />
+		<input type="text" name="Blood_Glucose_Sugar_(float_only)" placeholder="Blood_Glucose_Sugar_(float_only)" required="required" />
+		<input type="text" name="Blood_Urea_(float_only)" placeholder="Blood_Urea_(float_only)" required="required" />
+		<input type="text" name="Serum_Creatinine_(float_only)" placeholder="Serum_Creatinine_(float_only)" required="required" />
+		<input type="text" name="Sodium_(float_only)" placeholder="Sodium_(float_only)" required="required" />
+		<input type="text" name="Potassium_(float_only)" placeholder="Potassium_(float_only)" required="required" />
+		<input type="text" name="Hemoglobin_(float_only)" placeholder="Hemoglobin_(float_only)" required="required" />
+		<input type="text" name="Packed_Cell_Volume_(float_only)" placeholder="Packed_Cell_Volume_(float_only)" required="required" />
+		<input type="text" name="White_Cell_(float_only)" placeholder="White_Cell_(float_only)" required="required" />
+		<input type="text" name="Red_Blood_Cell_Count_(float_only)" placeholder="Red_Blood_Cell_Count_(float_only)" required="required" />
+		<input type="text" name="Hypertension_((yes\no)_only)" placeholder="Hypertension_((yes\no)_only)" required="required" />
+        <input type="text" name="Coronery_Artery_Disease_((yes\no)_only)" placeholder="Coronery_Artery_Disease((yes\no)_only)" required="required" />
+        <input type="text" name="Appetite_((good\poor)_only)" placeholder="Appetit_((good\poor)_only)" required="required" />
+		<input type="text" name="Pedal_Edema_((yes\no)_only)" placeholder="Pedal_Edema_((yes\no)_only)" required="required" />
+		<input type="text" name="Anemia_((yes\no)_only)" placeholder="Anemia_((yes\no)_only)" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+ </div>
+
+
+</body>
+</html>
+
